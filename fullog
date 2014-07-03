@@ -1,0 +1,25 @@
+C:\Users\R535239\Desktop\Edx>QMSEDX.exe -task="StalePricingQVDGenerator" -qms="http://r2035192a175:4799/QMS/Service/" -verbosity=3 -password=Test123 -timeout=
+Successfully started task with id/name=StalePricingQVDGenerator
+The task execution ended.
+
+Unhandled Exception: System.ServiceModel.FaultException: System.Exception: Could not find a result for the specified execution ID "58e2d879-04f9-4271-afb1-9cc
+
+Server stack trace:
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan t
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]:
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at QMSEDX.QMSAPI.IQMS.GetEDXTaskStatus(Guid qdsID, Guid executionID)
+   at QMSEDX.QMSAPI.QMSClient.GetEDXTaskStatus(Guid qdsID, Guid executionID)
+   at QMSEDX.Program.<>c__DisplayClasse.<PollSingleTask>b__d()
+   at System.Threading.SpinWait.SpinUntil(Func`1 condition, Int32 millisecondsTimeout)
+   at QMSEDX.Program.PollSingleTask(IQMS client, Guid execId, Int32 pollInterval, Int32 timeout)
+   at QMSEDX.Program.<>c__DisplayClassb.<MonitorTriggeredTasks>b__a(TaskExecutionItem item)
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at QMSEDX.Program.MonitorTriggeredTasks(IQMS client, List`1 executionItems)
+   at QMSEDX.Program.TriggerAndMonitorTask()
+   at QMSEDX.Program.Main(String[] args)
